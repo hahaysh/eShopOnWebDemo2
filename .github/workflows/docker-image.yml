@@ -22,7 +22,7 @@ jobs:
     - name: Build the Docker image
       run: docker compose build 
 
-    - name: Deploy to ARC
+    - name: Deploy to ACR
       uses: azure/docker-login@v1
       with:
             login-server:  ${{ vars.ACR_SERVER }}
