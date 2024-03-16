@@ -172,7 +172,6 @@ resource website_website_azurewebsites_net 'Microsoft.Web/sites/hostNameBindings
   parent: website_resource
   name: '${website}.azurewebsites.net'
   properties: {
-    siteName: '${website}'
     hostNameType: 'Verified'
   }
 }
