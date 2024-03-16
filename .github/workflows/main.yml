@@ -17,7 +17,6 @@ jobs:
     - name: Deploy Bicep file
       uses: azure/arm-deploy@v1
       with:
-        scope: 'resource'
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./.azure/bicep/prod.bicep
