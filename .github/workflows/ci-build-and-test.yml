@@ -1,20 +1,17 @@
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - dev
-      - main
-#  pull_request:
-#    types:
-#      - opened
-
-
+  # push:
+  #   branches:
+  #     - dev
+  #     - main
+  # pull_request:
+  #   types:
+  #     - opened
         
 name: CI DEV & Test
 
 env:
   env_var: ${{ vars.ENV_CONTEXT_VAR }}
-  
 
 jobs:
   buildandtest:

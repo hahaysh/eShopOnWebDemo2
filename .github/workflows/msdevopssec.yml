@@ -1,6 +1,7 @@
 # DEMO1
 name: MSDO windows-latest
-#on:
+on:
+  workflow_dispatch:
 #  push:
 #    branches:
 #      - main
