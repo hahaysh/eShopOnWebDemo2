@@ -79,7 +79,6 @@ resource website_resource 'Microsoft.Web/sites@2022-09-01' = {
 resource website_ftp 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2022-09-01' = {
   parent: website_resource
   name: 'ftp'
-  location: location
   properties: {
     allow: false
   }
@@ -88,7 +87,6 @@ resource website_ftp 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@202
 resource website_scm 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2022-09-01' = {
   parent: website_resource
   name: 'scm'
-  location: location
   properties: {
     allow: false
   }
@@ -97,7 +95,6 @@ resource website_scm 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@202
 resource website_web 'Microsoft.Web/sites/config@2022-09-01' = {
   parent: website_resource
   name: 'web'
-  location: location
   properties: {
     numberOfWorkers: 1
     defaultDocuments: [
@@ -174,9 +171,8 @@ resource website_web 'Microsoft.Web/sites/config@2022-09-01' = {
 resource website_website_azurewebsites_net 'Microsoft.Web/sites/hostNameBindings@2022-09-01' = {
   parent: website_resource
   name: '${website}.azurewebsites.net'
-  location: location
   properties: {
-    siteName: 'eshop-demo-alex'
+    siteName: '${website}'
     hostNameType: 'Verified'
   }
 }
@@ -190,12 +186,12 @@ resource website_stage 'Microsoft.Web/sites/slots@2022-09-01' = {
     enabled: true
     hostNameSslStates: [
       {
-        name: 'eshop-demo-alex-stage.azurewebsites.net'
+        name: '${website}-stage.azurewebsites.net'
         sslState: 'Disabled'
         hostType: 'Standard'
       }
       {
-        name: 'eshop-demo-alex-stage.scm.azurewebsites.net'
+        name: '${website}-stage.scm.azurewebsites.net'
         sslState: 'Disabled'
         hostType: 'Repository'
       }
@@ -234,12 +230,10 @@ resource website_stage 'Microsoft.Web/sites/slots@2022-09-01' = {
 resource website_stage_ftp 'Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies@2022-09-01' = {
   parent: website_stage
   name: 'ftp'
-  location: location
   properties: {
     allow: false
   }
   dependsOn: [
-
     website_resource
   ]
 }
@@ -247,12 +241,10 @@ resource website_stage_ftp 'Microsoft.Web/sites/slots/basicPublishingCredentials
 resource website_stage_scm 'Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies@2022-09-01' = {
   parent: website_stage
   name: 'scm'
-  location: location
   properties: {
     allow: false
   }
   dependsOn: [
-
     website_resource
   ]
 }
@@ -260,7 +252,6 @@ resource website_stage_scm 'Microsoft.Web/sites/slots/basicPublishingCredentials
 resource website_stage_web 'Microsoft.Web/sites/slots/config@2022-09-01' = {
   parent: website_stage
   name: 'web'
-  location: location
   properties: {
     numberOfWorkers: 1
     defaultDocuments: [
@@ -282,7 +273,7 @@ resource website_stage_web 'Microsoft.Web/sites/slots/config@2022-09-01' = {
     acrUseManagedIdentityCreds: false
     logsDirectorySizeLimit: 35
     detailedErrorLoggingEnabled: false
-    publishingUsername: '$eshop-demo-alex__stage'
+    publishingUsername: '${website}__stage'
     scmType: 'None'
     use32BitWorkerProcess: true
     webSocketsEnabled: false
@@ -334,7 +325,6 @@ resource website_stage_web 'Microsoft.Web/sites/slots/config@2022-09-01' = {
     azureStorageAccounts: {}
   }
   dependsOn: [
-
     website_resource
   ]
 }
@@ -342,13 +332,11 @@ resource website_stage_web 'Microsoft.Web/sites/slots/config@2022-09-01' = {
 resource website_stage_website_stage_azurewebsites_net 'Microsoft.Web/sites/slots/hostNameBindings@2022-09-01' = {
   parent: website_stage
   name: '${website}-stage.azurewebsites.net'
-  location: location
   properties: {
-    siteName: 'eshop-demo-alex(stage)'
+    siteName: '${website}(stage)'
     hostNameType: 'Verified'
   }
   dependsOn: [
-
     website_resource
   ]
 }
