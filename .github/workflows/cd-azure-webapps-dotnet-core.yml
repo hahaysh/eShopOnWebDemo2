@@ -1,6 +1,5 @@
 name: CD - DEV/PROD
 
-
 on:
   workflow_dispatch:
     inputs:
