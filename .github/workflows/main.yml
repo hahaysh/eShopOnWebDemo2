@@ -4,8 +4,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
     steps:
-
     - name: Checkout code
       uses: actions/checkout@main
 
@@ -20,5 +20,5 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./.azure/bicep/prod.bicep
-        parameters: 'website=aaa plan=bbb location=ccc'
+        parameters: 'website=eshoponwebdemo3 plan=eshoponwebasp3 location=eastus'
         failOnStdErr: false
