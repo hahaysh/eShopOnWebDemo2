@@ -1,5 +1,5 @@
-param website string = 'eshop-demo-alex'
-param plan string = 'eshop-plan'
+param website string = 'eshoponwebdemo3'
+param plan string = 'eshoponwebasp3'
 param location string ='East US'
 
 resource plan_resource 'Microsoft.Web/serverfarms@2022-09-01' = {
