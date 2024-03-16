@@ -233,9 +233,6 @@ resource website_stage_ftp 'Microsoft.Web/sites/slots/basicPublishingCredentials
   properties: {
     allow: false
   }
-  dependsOn: [
-    website_resource
-  ]
 }
 
 resource website_stage_scm 'Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies@2022-09-01' = {
@@ -244,9 +241,6 @@ resource website_stage_scm 'Microsoft.Web/sites/slots/basicPublishingCredentials
   properties: {
     allow: false
   }
-  dependsOn: [
-    website_resource
-  ]
 }
 
 resource website_stage_web 'Microsoft.Web/sites/slots/config@2022-09-01' = {
@@ -324,9 +318,6 @@ resource website_stage_web 'Microsoft.Web/sites/slots/config@2022-09-01' = {
     minimumElasticInstanceCount: 0
     azureStorageAccounts: {}
   }
-  dependsOn: [
-    website_resource
-  ]
 }
 
 resource website_stage_website_stage_azurewebsites_net 'Microsoft.Web/sites/slots/hostNameBindings@2022-09-01' = {
@@ -336,7 +327,4 @@ resource website_stage_website_stage_azurewebsites_net 'Microsoft.Web/sites/slot
     siteName: '${website}(stage)'
     hostNameType: 'Verified'
   }
-  dependsOn: [
-    website_resource
-  ]
 }
