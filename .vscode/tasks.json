@@ -41,14 +41,15 @@
         {
             "label": "bridge-to-kubernetes.resource",
             "type": "bridge-to-kubernetes.resource",
-            "resource": "eshoponweb",
+            "resource": "eshoponwebdemo2",
             "resourceType": "service",
             "ports": [
-                5001
+                80
             ],
-            "targetCluster": "eshoponweb",
-            "targetNamespace": "default",
-            "useKubernetesServiceEnvironmentVariables": false
+            "targetCluster": "eshoponwebdemo2",
+            "targetNamespace": "eshoponwebdemo2",
+            "useKubernetesServiceEnvironmentVariables": false,
+            "targetContainer": "eshoponwebdemo2"
         },
         {
             "label": "bridge-to-kubernetes.compound",
